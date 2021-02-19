@@ -4,12 +4,16 @@ namespace PingQuery
 {
 	public class Ping
 	{
-		public string ID { get; set; }
+		public string id { get; set; }
 
-		public string Post { get; set; }
+		public string idAccount { get; set; }
 
-		public string Tags { get; set; }
+		public string post { get; set; }
 
-		public string Imagens { get; set; }
+		public string[] tags { get; set; }
+
+		public string[] imagens { get; set; }
+
+		public string visibilidade { get; set; }
 	}
 }
