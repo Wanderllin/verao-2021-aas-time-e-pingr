@@ -8,7 +8,7 @@ Basta instalar o Docker e depois digitar na linha de comando de um shell:
 `docker-compose up -d`
 
 
-Justificativas para o uso de CQRS:
+## Justificativas para o uso de CQRS:
 
 •	Dimensionamento independente. O CQRS permite que as cargas de trabalho de leitura e gravação sejam dimensionadas de forma independente e pode resultar em menos contenções de bloqueio.
 
