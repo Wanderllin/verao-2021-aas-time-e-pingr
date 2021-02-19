@@ -1,0 +1,77 @@
+version: '3'
+
+services:
+  local-message-broker:
+    build: 
+      context: infra/
+      dockerfile: Dockerfile-Rabbit
+    container_name: pingr-broker
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - messaging
+
+  accounts-db:
+    image: mariadb
+    container_name: accounts-db
+    environment:
+        MYSQL_ROOT_PASSWORD: "123"
+    ports:
+      - "1433:3306"
+    networks:
+      - messaging
+
+  notifications-db:
+    image: mariadb
+    container_name: notifications-db
+    environment:
+        MYSQL_ROOT_PASSWORD: "123"
+    ports:
+      - "1434:3306"
+    networks:
+      - messaging
+
+  pings-db:
+    image: mariadb
+    container_name: pings-db
+    environment:
+        MYSQL_ROOT_PASSWORD: "123"
+    ports:
+      - "1435:3306"
+    networks:
+      - messaging
+
+  statistics-db:
+    image: mariadb
+    container_name: statistics-db
+    environment:
+        MYSQL_ROOT_PASSWORD: "123"
+    ports:
+      - "1436:3306"
+    networks:
+      - messaging
+
+  pings-images-db:
+    image: "minio/minio"
+    container_name: pings-images-db
+    command: server /data
+    environment: 
+      MINIO_ROOT_USER: accesskey
+      MINIO_ROOT_PASSWORD: secretkey
+    ports:
+      - "9000:9000"
+    networks:
+      - messaging
+      
+  pings-caching-db:
+    image: "redis"
+    container_name: pings-caching-db
+    ports:
+      - "6379:6379"
+    networks:
+      - messaging
+
+networks: 
+    messaging:
+      driver: bridge
