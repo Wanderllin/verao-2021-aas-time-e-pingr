@@ -5,8 +5,8 @@
     "product_version": "3.8.12",
     "users": [
         {
-            "name": "guest",
-            "password_hash": "PY1vZEn002vA3CGFBlsSfbenMmdDgP2EeBN0ftQ1dEzhhnyv",
+            "name": "pingr",
+            "password_hash": "hxK5SwIvUbLvb8MmFN1j/QP6ChW5xYbKPzuuvKrLFObTSN2z",
             "hashing_algorithm": "rabbit_password_hashing_sha256",
             "tags": "administrator",
             "limits": {}
@@ -19,7 +19,7 @@
     ],
     "permissions": [
         {
-            "user": "guest",
+            "user": "pingr",
             "vhost": "/",
             "configure": ".*",
             "write": ".*",
