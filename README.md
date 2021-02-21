@@ -97,7 +97,9 @@ Visitante: ator que não possui uma conta no sistema
 **Histórias de usuários agrupadas por microsserviços**
 
 **Conta**
-Eu, como usuário, gostaria de realizar o gerenciamento da minha conta
+
+**Eu, como usuário, gostaria de realizar o gerenciamento da minha conta**
+
   * Uma conta é identificável por nome de usuário
   * Uma conta está atrelada a uma senha e um e-mail
   * Posso alterar a privacidade da minha conta, sendo ela pública ou privada
