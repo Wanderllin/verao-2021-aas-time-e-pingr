@@ -87,6 +87,154 @@ Não possui senha
 ```
 ## 2. Análise de Requisitos Funcionais (RF) e Requisitos Não Funcionais (RNF)
 
+##Requisitos Funcionais
+
+(Requisito Funcional estamos nos referindo à requisição de uma função que um software deverá atender/realizar. Ou seja, exigência, solicitação, desejo, necessidade, que um software deverá materializar.Os requisitos funcionais podem ser cálculos, detalhes técnicos, manipulação de dados e de processamento e outras funcionalidades específicas que definem o que um sistema, idealmente, será capaz de realizar.)
+
+**Cadastro de usuário**
+ * RF001: Para poder pingar (postar pings), as pessoas precisam criar uma conta com e-mail, senha e um nome de usuário
+  * E-mail deve ser único
+  * Senha deve ser criptografada
+ * RF002: Um usuário pode gerenciar a visibilidade de seus pings: Criar uma tabela para definir e separar o que é visibilidade do ping e o  que é visibilidade do perfil
+  * Privado: Redefinir o padrão para privado e, nesse caso, outros usuários precisam solicitar permissão para segui-lo e assim poder ver e interagir com seus pings
+  * Amigos especiais - Para quem é público: Marcar um ping como restrito aos amigos especiais, uma lista de usuários que seguem o usuário em questão e é pré-definida pelo mesmo (apenas no caso do padrão estar como público)
+  * Ping Público - Para quem é privado: Marcar um ping como público (apenas no caso em que o padrão está como privado).
+
+**REQUISITO 1: postar ping**
+  * RF003: Um ping pode conter textos limitados a 140 caracteres e/ou imagens, e ainda pode ser classificado com até 10 palavras chaves (hashtags, que não são contabilizadas nos 140 caracteres). Os usuários podem fazer menções a outros usuários no formato @nomeDeUsuário.
+   * Os textos podem conter um emoji unicode
+   * Talvez colocar limite no anexo de imagens
+   * Limitador de transferência de imagens
+  * RF003: Um ping pode ser respondido com um novo ping por qualquer usuário do Pingr, inclusive o próprio autor.
+  * RF004: Interações em pings geram notificações ao autor.
+  * RF005: Por padrão, o conjunto de pings de um usuário é público 
+  * RF006: Ao selecionar uma hashtag de alguma TgN (TagHereNow), uma busca é disparada por pings marcados com aquela palavra-chave.
+  * RF007: Por padrão, o conjunto de pings de um usuário é público, que significa que qualquer pessoa -- mesmo sem ter um perfil no Pingr -- pode acessá-lo
+
+**Direct Ping**
+  * RF036: Outra forma de interagir pelo Pingr é através de Direct Ping (DP).
+  * RF037: Enviar um DP é a forma de trocar mensagens com um outro usuário de forma privada.
+  * RF038: Ao receber um DP, uma notificação é gerada para o usuário. 
+  * RF039: Um DP não pode ser curtido nem receber pongs; apenas pode ser respondido. 
+  * RF040: As demais restrições de um ping normal se aplicam a um DP.
+   * Estágios de um DP
+    * Enviado: quando a mensagem sai com sucesso do emissor;
+    * Não-recebido: quando a mensagem é enviada, porém ocorreu alguma falha no caminho. Nesse caso, ela pode ser reenviada;
+    * Recebido: quando a mensagem é enviada e recebida com sucesso; 
+    * Visualizado: quando a mensagem é recebida e o usuário a abre.
+
+**Postar**
+  * RF008: Depois de postado, não pode mais ser editado
+  * RF009: Pode apenas apagá-lo do histórico
+ 
+**Pong**
+  * RF010: Porém, apenas outros usuários podem curtir ou dar pong (compartilhar aquele ping). 
+  * RF012: Um DP (Direct Ping) não pode ser curtido nem receber pongs; (mensagem privada)
+   * Pode ser excluído?
+   * Tem uma tela só para isso? Ou vai aparecer na mesa?
+    
+**Curtir?**
+  * RF013: não achei a regra
+   * Pode curtir mais de uma vez o mesmo ping?
+   * Pode descurtir?
+
+**Seguir**
+  * RF014: Um usuário pode seguir outros usuários. 
+  * RF015: Essa relação não é espelhada, isto é, quando um usuário A começa a seguir um usuário B, isto não significa que B começa a seguir A
+  * RF016: Quando um usuário começa a seguir outro, uma notificação é gerada para o seguido
+   * Quando começa a seguir, enxerga todo o histórico de ping’s ou só os novos?
+  * RF017: Além de seguir usuários, também é possível seguir hashtags. 
+  * RF018: Ao selecionar uma hashtag de alguma TgN, uma busca é disparada por pings marcados com aquela palavra-chave.
+
+**Mesa principal - (destrinchar esse requisito)**
+  * RF019: O conjunto histórico de pings dos usuários seguidos por um usuário é exibido em sua mesa principal (a linha do tempo).
+
+**Mesas secundárias (views)**
+  * RF020: Um usuário pode criar mesas secundárias personalizadas com filtros por grupo de usuários e/ou hashtags. O número máximo de mesas secundárias é 3.
+  * RF021: As menções de outros usuários em um ping, geram notificações aos referidos usuários.
+  * RF023: Quando um usuário A solicita seguir um usuário privado B, uma notificação é gerada para B.
+  * RF024: Quando B decide a solicitação (seja aceitando ou recusando), uma notificação é gerada para A informando o ocorrido.
+  * RF025: Ao receber um DP, uma notificação é gerada para o usuário. 
+  * RF026: As notificações têm comportamentos diferentes dependendo do cliente (web ou mobile). Na web tem um menu para listar notificações. No mobile é ASAP (um push)
+   * Na mesa terá notificação ao chegar novos ping’s?
+
+**TagNows**
+  * RF027: duas listas de palavras-chave mais utilizadas
+   * Configuração
+    * Opções selecionáveis da TgNH são nacional, estadual e municipal, de acordo com a localização do sensor de GPS. 
+    * No caso de o usuário não ter acesso a um sensor GPS ou o usuário não ter dado permissão para acessar o mesmo, então a segunda lista de hashtags não fica disponível.
+    * Aos usuários que acessam o Pingr pelo cliente web, a TgNH não está disponível, ela é exclusiva de clientes mobile.
+
+**Serviço**
+ * RF028: listas de palavras-chave mais utilizadas: 
+ * TagNow World
+  * A cada 10 minutos, são geradas a TagNow World (TgNW)
+  * Lista global
+   * Quantas tags?
+   * Essa lista vai sendo consolidada ao longo dos 10 minutos para ficar disponível a consulta das mais utilizadas. O usuário sempre vê a última consolidação gerada
+ * TagNow Here
+  * A cada 10 minutos, são geradas a TagNow Here (TgNH)
+  * Lista configurável por usuário.
+
+**Web**
+ * RF029: Aos usuários que acessam o Pingr pelo cliente web, a TgNH não está disponível 
+ * RF030: A visualização de mesas personalizadas é restrita apenas a usuários acessando por clientes web. 
+ * RF031: Tanto web quanto mobile têm um menu específico para listar as notificações, ordenadas da mais recente para a mais antiga. As notificações são diferenciadas entre “lidas” e “não lidas”. 
+
+**Mobile**
+ * RF032: Aos usuários que acessam o Pingr pelo cliente mobile, a TgNH está disponível 
+ * RF033: Para clientes mobile, apenas a mesa principal é disponibilizada.
+  * Comportamento das notificações:
+   * Clientes mobile têm suporte a notificações PUSH que são enviadas assim que a ação ocorre (interação com pings, DPs, etc); 
+ * RF034: Tanto web quanto mobile têm um menu específico para listar as notificações, ordenadas da mais recente para a mais antiga. As notificações são diferenciadas entre “lidas” e “não lidas”. 
+
+**Busca hashtag**
+ * RF035: Ao selecionar uma hashtag de alguma TgN, uma busca é disparada por pings marcados com aquela palavra-chave.
+
+##Requisitos Não Funcionais
+(requisito não funcional de software é aquele que descreve não o que o sistema fará, mas como ele fará. Assim, por exemplo, têm-se requisitos de desempenho, requisitos da interface externa do sistema, restrições de projeto e atributos da qualidade. Exemplo destes requisitos são desempenho, portabilidade, manutenibilidade e escalabilidade.)
+
+**Tipos de dispositivos**
+ * RNF01: web
+ * RNF02: mobile
+  
+**Hardware/portabilidade**
+ * RNF03: O aporte financeiro possibilitou a mudança de escritório para um novo lugar
+  * Lei Conway e times interdisciplinares correspondem a mudança de lugar que a empresa está passando, ao crescimento do time
+  
+**Escalabilidade**
+ * RNF04: O Pingr é acessado maciçamente por seu público ao longo das 24/7.
+  * Canary deployment para não atualizar toda a base de usuários de uma vez.
+  * Utilização de TDD para prevenir erros
+  * A/B Testing
+  
+**Eficiência**
+  * RNF05: usuários toleram alguns delays nas atualizações:
+   * Pings de outros podem demorar até 3 minutos para aparecer na(s) sua(s) mesa(s); 
+   * DPs podem levar até 1 minuto para serem recebidos;
+   * Pings próprios podem levar até 15s para aparecerem para si.
+
+**Entrega**
+  * RNF06: Até 4 meses atrás, a empresa Pingr investiu apenas no público latino-americano. 
+  * RNF07: Até julho de 2022, o plano é de ter presença em países de todos os continentes.
+
+**Time**
+  * RNF08: O planejamento é multiplicar a equipe de desenvolvimento 
+  * RNF09: indo de 15 para 250 membros ao longo dos próximos 12 meses. 
+  * RNF10: Os times serão autogerenciáveis e multidisciplinares
+
+**Legais**
+  * RNF11: Durante sua criação e crescimento inicial, o Pingr passou pela aprovação em uma consultoria sobre LGPD.
+  * RNF12: O novo sistema deve manter o mesmo patamar em conformidade com as novas diretrizes de segurança de dados pessoais. (informar sobre vazamento de dados pessoais)
+  
+**padrões**
+  * RNF13: O Pingr sempre foi desenvolvido sob as práticas de Engenharia de Software Ágil e assim deverá se manter durante a expansão da equipe.
+
+**Implantação**
+  * RNF14: sistema seja testável, desde suas unidades até a integração das partes.
+  * RNF15: Além disso, deve ser possível fazer testes A/B com usuários para o lançamento de novas funcionalidades,
+  * RNF16: implantação canária (canary deployment) e demais técnicas semelhantes. 
+
 
 ## 3. História de usuário
 
