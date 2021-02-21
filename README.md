@@ -1,5 +1,20 @@
+# PROGRAMA DE VERÃO (2021 - edição 50)
+
 # verao-2021-aas-time-e-pingr
-Projeto Pingr - Arquitetura Ágil de Software - EaD - 18/01/2021 a 26/02/2021
+Projeto Pingr - Arquitetura Ágil de Software - EaD - Período: 18/01/2021 a 26/02/2021
+
+Este é o repositório do github para a solução criada pela equipe E para o Projeto Pingr 2020. Ele contém uma proposta de arquitetura para a nova rede social Pingr, qhe recebeu um grande aporte financeiro na virada de 2020 para 2021 e também este novo planejamento tem como objetivo multiplicar a equipe de desenvolvimento - indo de 15 para 250 membros ao longo dos próximos 12 meses.
+
+## Curso: 17. Arquitetura Ágil de Software - EaD
+Professores: João Francisco Lino Daniel, Thatiane de Oliveira Rosa, Wander
+
+## Membros do time E:
+* Denilson Costa Dias
+* Guilherme Martelato Campos	
+* Marcos Barbosa de Castro
+* Renan Marcos Ferreira	
+* Vanderlin Júnior	
+* Victor Eduardo Próspero	
 
 ## Infraestrutura
 
