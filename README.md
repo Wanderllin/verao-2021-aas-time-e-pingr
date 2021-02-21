@@ -87,7 +87,7 @@ Não possui senha
 ```
 ## 2. Análise de Requisitos Funcionais (RF) e Requisitos Não Funcionais (RNF)
 
-##Requisitos Funcionais
+## Requisitos Funcionais
 
 (Requisito Funcional estamos nos referindo à requisição de uma função que um software deverá atender/realizar. Ou seja, exigência, solicitação, desejo, necessidade, que um software deverá materializar.Os requisitos funcionais podem ser cálculos, detalhes técnicos, manipulação de dados e de processamento e outras funcionalidades específicas que definem o que um sistema, idealmente, será capaz de realizar.)
 
@@ -191,7 +191,7 @@ Não possui senha
 **Busca hashtag**
  * RF035: Ao selecionar uma hashtag de alguma TgN, uma busca é disparada por pings marcados com aquela palavra-chave.
 
-##Requisitos Não Funcionais
+## Requisitos Não Funcionais
 (requisito não funcional de software é aquele que descreve não o que o sistema fará, mas como ele fará. Assim, por exemplo, têm-se requisitos de desempenho, requisitos da interface externa do sistema, restrições de projeto e atributos da qualidade. Exemplo destes requisitos são desempenho, portabilidade, manutenibilidade e escalabilidade.)
 
 **Tipos de dispositivos**
