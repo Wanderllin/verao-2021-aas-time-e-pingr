@@ -330,7 +330,7 @@ Visitante: ator que não possui uma conta no sistema
 
 ## 4. Respondendo a que perguntas do Projeto **Projeto Pingr** 
 
-TRADE OFF dos Pings
+**TRADE OFF dos Pings
 
 Como a equipe de desenvolvimento vai crescer e os pings são muito importantes para os usuários.
 Aplicamos o padrão de arquitetura CQRS para os Pings.
@@ -339,16 +339,16 @@ E outro microsserviço chamado ping-command, onde faremos todas as postagens de 
 Entre os dois microsserviços existirá um mecanismo de ETL que irá gravar na base do "ping-query" de forma estruturada as informações para as consultas apropriadas a esse serviço.
 A seguir algumas definições da história do usuário.
 
-Ping Privado
+* Ping Privado
 Um ping privado é visto somente por usuários que seguem a minha conta
 Um ping de uma conta privada, pode ser alterada para pública e visto por outros usuários e por visitantes.
 
-Ping Público
-	Eu, como visitante, gostaria de visualizar pings públicos
-	Um ping público é visto por outros usuários e por visitantes. 
-	Quando minha conta é pública, todos os meus novos pings entrarão com a visibilidade “público”
+* Ping Público
+Eu, como visitante, gostaria de visualizar pings públicos
+Um ping público é visto por outros usuários e por visitantes. 
+Quando minha conta é pública, todos os meus novos pings entrarão com a visibilidade “público”
 
-Ping
+* Ping
 Pode levar até 15 segundos para aparecer meu novo ping para mim
 Eu, como usuário, gostaria de classificar meus pings em até 10 hashtags
 Eu, como usuário, gostaria de anexar imagens em um ping
@@ -356,14 +356,14 @@ Eu, como usuário, gostaria de responder pings. Podendo responder o próprio pin
 Eu, como usuário, gostaria de curtir um ping
 Eu, como usuário, gostaria de compartilhar um ping. Essa ação é chamada de pong
 
-Mesa Principal
-	Eu, como usuário, gostaria de visualizar pings na mesa principal (timeline)
-	É possível visualizar os próprios pings ou de outros usuários
-	Pode demorar até 3 minutos no máximo para aparecer novos pings de outros usuários nas mesas
-	Ao seguir um usuário, todos os novos pings publicados por ele e os antigos são exibidos nas mesas
-	Os pings classificados com a hashtag seguida são exibidos nas mesas
+* Mesa Principal
+Eu, como usuário, gostaria de visualizar pings na mesa principal (timeline)
+É possível visualizar os próprios pings ou de outros usuários
+Pode demorar até 3 minutos no máximo para aparecer novos pings de outros usuários nas mesas
+Ao seguir um usuário, todos os novos pings publicados por ele e os antigos são exibidos nas mesas
+Os pings classificados com a hashtag seguida são exibidos nas mesas
 
-Mesa Personalizada
+* Mesa Personalizada
 Eu, como usuário, gostaria de visualizar pings utilizando filtros e salvar isso como uma mesa personalizada
 Posso ter no máximo 3 mesas personalizadas
 As mesas personalizadas só são visualizadas no cliente web
@@ -371,7 +371,7 @@ Usar como filtro hashtags e/ou nomes de usuários
 Ao seguir um usuário, todos os novos pings publicados por ele e os antigos são exibidos nas mesas
 Os pings classificados com a hashtag seguida são exibidos nas mesas
 
-Consulta pings por HashTag
+* Consulta pings por HashTag
 Eu, como usuário, gostaria de visualizar pings associados a um hashtag (busca de hashtags)
 Na lista das TgNW e TgNH Ao clicar para visualizar uma hashtag, a busca por pings com ela é disparada
 
