@@ -1,1 +1,1 @@
-# BFF - Backends For Frontends
+# CQRS - Command Query Responsibility Segregation
