@@ -19,31 +19,21 @@ namespace PingQuery.Controllers
 			_logger = logger;
 		}
 
-		[HttpGet("byId")]
-		public IEnumerable<Ping> GetId(string id)
+		/// <summary>
+		/// Pega um ping específico
+		/// </summary>
+		/// <returns></returns>
+		[HttpGet("")]
+		public IEnumerable<Ping> Get(string idPing)
 		{
-			var rng = new Random();
 			return Enumerable.Range(1, 1).Select(index => new Ping
 			{
-				id = Guid.NewGuid().ToString(),
+				idPing = Guid.NewGuid().ToString(),
 				idAccount = Guid.NewGuid().ToString(),
+				nameAccount = "Renato",
+				dataPost = "19/02/2021 16:05",
 				post = "Governo diz que a vacinação será por ordem de chegada...",
 				tags = new string[3] { "#vacina", "#idoso", "#governo"},
-				imagens = new string[2] { @"C:\Users\Marcos\source\repos\PingQuery\PingQuery\Img\Vacina.png", @"C:\Users\Marcos\source\repos\PingQuery\PingQuery\Img\Covid19.jpg" },
-				visibilidade = "publico"
-			});
-		}
-
-		[HttpGet("byId")]
-		public IEnumerable<Ping> GetAccount(string id)
-		{
-			var rng = new Random();
-			return Enumerable.Range(1, 1).Select(index => new Ping
-			{
-				id = Guid.NewGuid().ToString(),
-				idAccount = Guid.NewGuid().ToString(),
-				post = "Governo diz que a vacinação será por ordem de chegada...",
-				tags = new string[3] { "#vacina", "#idoso", "#governo" },
 				imagens = new string[2] { @"C:\Users\Marcos\source\repos\PingQuery\PingQuery\Img\Vacina.png", @"C:\Users\Marcos\source\repos\PingQuery\PingQuery\Img\Covid19.jpg" },
 				visibilidade = "publico"
 			});
