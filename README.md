@@ -88,25 +88,32 @@ Em contrapartida, existe uma complexidade grande envolvida nesse tipo de soluç�
   Na lista das TgNW e TgNH Ao clicar para visualizar uma hashtag, a busca por pings com ela é disparada.  
 
 ## 5. Arquitetura desenvolvida para Pingr
+
 **Macro Arquitetura para Pingr:**
+
 ![Arquitetura Global](imagens/microservices-and-eda-view-pingr-0.png)
 
 **Detalhes Arquitetura para Pingr:**
+
 ![Arquitetura Global](imagens/microservices-and-eda-view-pingr-00.png)
 
 **Detalhes 1 Arquitetura para Pingr:**
+
 ![Arquitetura Global](imagens/microservices-and-eda-view-pingr-1.png)
 
 **Detalhes 2 Arquitetura para Pingr:**
+
 ![Arquitetura Global](imagens/microservices-and-eda-view-pingr-2.png)
 
 **Detalhes 3 Arquitetura para Pingr:**
 ![Arquitetura Global](imagens/microservices-and-eda-view-pingr-3.png)
 
 **Detalhes 4 Arquitetura para Pingr:**
+
 ![Arquitetura Global](imagens/microservices-and-eda-view-pingr-4.png)
 
 **Detalhes 5 Arquitetura para Pingr:**
+
 ![Arquitetura Global](imagens/microservices-and-eda-view-pingr-5.png)
 
 ## 6. Justificativas para o uso de CQRS
