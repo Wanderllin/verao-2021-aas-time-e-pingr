@@ -106,6 +106,7 @@ Em contrapartida, existe uma complexidade grande envolvida nesse tipo de solu√ß√
 ![Arquitetura Global](imagens/microservices-and-eda-view-pingr-2.png)
 
 **Detalhes 3 Arquitetura para Pingr:**
+
 ![Arquitetura Global](imagens/microservices-and-eda-view-pingr-3.png)
 
 **Detalhes 4 Arquitetura para Pingr:**
