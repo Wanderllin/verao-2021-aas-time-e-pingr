@@ -42,17 +42,13 @@ As vantagens de usar a abordagem de microsserviços vão além de um desenvolvim
 
    * A desvantagem mais importante é que, quando você implementa um Gateway de API, está acoplando essa camada aos microsserviços internos. Um acoplamento como este pode introduzir problemas sérios no seu aplicativo. Clemens Vaster, arquiteto na equipe do Barramento de Serviço do Azure, refere-se a essa possível dificuldade como "o novo ESB" na sessão "Mensagens e microsserviços" na GOTO 2016.
 
-    * Usar um Gateway de API de microsserviços cria um possível ponto único de falha adicional.
+   * Usar um Gateway de API de microsserviços cria um possível ponto único de falha adicional.
 
-    * Um Gateway de API pode apresentar um maior tempo de resposta devido à chamada de rede adicional. No entanto, essa chamada extra normalmente causa um menor impacto do que ter uma interface do cliente com excesso de chamadas diretas aos microsserviços internos.
+   * Um Gateway de API pode apresentar um maior tempo de resposta devido à chamada de rede adicional. No entanto, essa chamada extra normalmente causa um menor impacto do que ter uma interface do cliente com excesso de chamadas diretas aos microsserviços internos.
 
-    * Se não for dimensionado corretamente, o Gateway de API poderá se tornar um gargalo.
+   * Se não for dimensionado corretamente, o Gateway de API poderá se tornar um gargalo.
 
-    * Um Gateway de API requer custos adicionais de desenvolvimento e manutenção futura se incluir lógica personalizada e agregação de dados. Os desenvolvedores precisam atualizar o Gateway de API para expor os pontos de extremidade de cada microsserviço. Além disso, as alterações de implementação nos microsserviços internos podem causar alterações de código no nível do Gateway da API. No entanto, se o Gateway de API estiver apenas aplicando segurança, logon e controle de versão (como ao usar o Gerenciamento de API do Azure), esse custo de desenvolvimento adicional poderá não se aplicar.
+   * Um Gateway de API requer custos adicionais de desenvolvimento e manutenção futura se incluir lógica personalizada e agregação de dados. Os desenvolvedores precisam atualizar o Gateway de API para expor os pontos de extremidade de cada microsserviço. Além disso, as alterações de implementação nos microsserviços internos podem causar alterações de código no nível do Gateway da API. No entanto, se o Gateway de API estiver apenas aplicando segurança, logon e controle de versão (como ao usar o Gerenciamento de API do Azure), esse custo de desenvolvimento adicional poderá não se aplicar.
 
-    * Se o Gateway de API for desenvolvido por uma única equipe, poderá haver um gargalo de desenvolvimento. Esse aspecto é outro motivo pelo qual uma abordagem melhor é ter vários gateways de API multas que respondem a diferentes necessidades do cliente. Você também pode separar o Gateway de API internamente em várias áreas ou camadas de propriedade de diferentes equipes trabalhando em microsserviços internos.
-
-
-
-
+   * Se o Gateway de API for desenvolvido por uma única equipe, poderá haver um gargalo de desenvolvimento. Esse aspecto é outro motivo pelo qual uma abordagem melhor é ter vários gateways de API multas que respondem a diferentes necessidades do cliente. Você também pode separar o Gateway de API internamente em várias áreas ou camadas de propriedade de diferentes equipes trabalhando em microsserviços internos.
 
