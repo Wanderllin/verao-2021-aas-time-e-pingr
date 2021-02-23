@@ -6,7 +6,8 @@ Até 4 meses atrás, a empresa Pingr investiu apenas no público latino-american
 O Pingr é acessado maciçamente por seu público ao longo das 24 horas do dia. E as pesquisas de aceitação demonstraram que os usuários toleram alguns delays, como:
 - Pings próprios podem levar até 15s para aparecerem para si.
 - Pings de outros podem demorar até 3 minutos para aparecer na(s) sua(s) mesa(s);
-Para poder atender o publico dentro da espectativa do tempo, e tornar as implementações e manutenções mais ágeis para o objetivo central da aplicação, que é o ping, decidimos desmembrar o microsserviço Ping implementando o padrão de arquitetura CQRS no mesmo.
+
+Para poder atender o público dentro da expectativa do tempo, e tornar as implementações e manutenções mais ágeis para o objetivo central da aplicação, que é o ping, decidimos desmembrar o microsserviço Ping implementando o padrão de arquitetura CQRS no mesmo.
 
 Usamos esse padrão nos microsserviços:
 
