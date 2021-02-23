@@ -2,68 +2,31 @@
 
 ## Decisão
 
-Como cheguei a escolher essa decisão?
+Até 4 meses atrás, a empresa Pingr investiu apenas no público latino-americano. Desde então, a rede social está expandindo para outras regiões do planeta. Até julho de 2022, o plano é de ter presença em países de todos os continentes.
+O Pingr é acessado maciçamente por seu público ao longo das 24 horas do dia. E as pesquisas de aceitação demonstraram que os usuários toleram alguns delays, como:
+- Pings próprios podem levar até 15s para aparecerem para si.
+- Pings de outros podem demorar até 3 minutos para aparecer na(s) sua(s) mesa(s);
+Para poder atender o publico dentro da espectativa do tempo, e tornar as implementações e manutenções mais ágeis para o objetivo central da aplicação, que é o ping, decidimos desmentrar o microsserviço Ping implementando o padrão de arquitetura CQRS no mesmo.
 
-Usamos esse padrão em tais microsserviços:
+Usamos esse padrão nos microsserviços:
 
-* Microsserviço 1
-* Microsserviço 2
+* Ping-Command
+* Ping-Query
 
 ## Consequências
 
-Descrever pontos positivos e negativos de ter escolhido esse padrão
+Por conta da separar a responsabilidade de escrita e leitura de seus dados, podemos visualizar algumas consequências positivas e negativas.
 
--------
+Pontos Positvos:
+- Como será uma base de dados para cada microsserviço, teremos uma melhora na performance do banco e na aplicação
+- Aumenta a disponibilidade e escalabilidade da aplicação
+- Facilitar a implementação e manutenção dos dois microsserviços
+- Os microsserviços podem ser em linguagem diferentes
 
-
-  Como a equipe de desenvolvimento vai crescer e os pings são muito importantes para os usuários.  
-  Aplicamos o padrão de arquitetura CQRS para os Pings.  
-  Onde teremos um microsserviço chamado ping-query, que fará todas as consultas em um repositório replicado.  
-  E outro microsserviço chamado ping-command, onde faremos todas as postagens de pings dos usuários com um banco próprio.  
-  Entre os dois microsserviços existirá um mecanismo de ETL que irá gravar na base do "ping-query" de forma estruturada as informações para as consultas apropriadas a esse serviço.  
-  A seguir algumas definições da história do usuário.  
-
-* Ping Privado
- 
-  Um ping privado é visto somente por usuários que seguem a minha conta.  
-  Um ping de uma conta privada, pode ser alterada para pública e visto por outros usuários e por visitantes.  
-
-* Ping Público
-
-  Eu, como visitante, gostaria de visualizar pings públicos.  
-  Um ping público é visto por outros usuários e por visitantes.  
-  Quando minha conta é pública, todos os meus novos pings entrarão com a visibilidade “público”.  
-
-* Ping
-
-  Pode levar até 15 segundos para aparecer meu novo ping para mim.  
-  Eu, como usuário, gostaria de classificar meus pings em até 10 hashtags.  
-  Eu, como usuário, gostaria de anexar imagens em um ping.  
-  Eu, como usuário, gostaria de responder pings. Podendo responder o próprio ping ou ping de outras pessoas.  
-  Eu, como usuário, gostaria de curtir um ping.  
-  Eu, como usuário, gostaria de compartilhar um ping. Essa ação é chamada de pong.  
-
-* Mesa Principal
-
-  Eu, como usuário, gostaria de visualizar pings na mesa principal (timeline).  
-  É possível visualizar os próprios pings ou de outros usuários.  
-  Pode demorar até 3 minutos no máximo para aparecer novos pings de outros usuários nas mesas.  
-  Ao seguir um usuário, todos os novos pings publicados por ele e os antigos são exibidos nas mesas.  
-  Os pings classificados com a hashtag seguida são exibidos nas mesas.  
-
-* Mesa Personalizada
-
-  Eu, como usuário, gostaria de visualizar pings utilizando filtros e salvar isso como uma mesa personalizada.  
-  Posso ter no máximo 3 mesas personalizadas.  
-  As mesas personalizadas só são visualizadas no cliente web.  
-  Usar como filtro hashtags e/ou nomes de usuários.  
-  Ao seguir um usuário, todos os novos pings publicados por ele e os antigos são exibidos nas mesas.  
-  Os pings classificados com a hashtag seguida são exibidos nas mesas.  
-
-* Consulta pings por HashTag
-
-  Eu, como usuário, gostaria de visualizar pings associados a um hashtag (busca de hashtags).  
-  Na lista das TgNW e TgNH Ao clicar para visualizar uma hashtag, a busca por pings com ela é disparada. 
+Pontos Negativos:
+- Por ter base de dados separado, maior responsabilidade e complexidade para alteração em tabela e representação de dados nos diferentes microsserviços
+- Uma estrutura de infra maior
+- Cuidado e atenção especial no gerenciamento da ferramente de replicação das informações entre as bases.
 
 ## 6. Justificativas para o uso de CQRS
 
