@@ -30,10 +30,11 @@ Aqui nesse ponto podemos ver a viabilidade de Events Notifications, e como podem
   * A comunicação flui apenas em uma direção: as notificações devem seguir o estilo “disparar e esquecer”, pelo qual o gerador enviará a notificação e seguirá seu fluxo normalmente, não aguardando o processamento do evento pelo processador. A preocupação com os processadores que recebem a notificação com sucesso passa a ser responsabilidade da fila ou do mediador.
   * É livre de comandos: uma notificação informa a ocorrência de um evento. Não deve dizer o que deve fazer o processador que receberá o evento; cada processador deve saber o que fazer com o evento.
 
-Usamos esse padrão em tais microsserviços:
+**Usamos esse padrão em tais microsserviços:**
 
-* notification-delivery
+* **Microsserviço: notification-delivery**
 
+![Arquitetura Global](imagens/microservices-and-eda-view-pingr-4.png)
 
  
 ## Consequências (Descrever pontos positivos e negativos de ter escolhido esse padrão)
