@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PingQuery.Infrastructure;
+using PingCommand.Infrastructure;
 using System.Collections.Generic;
 
-namespace PingQuery.Controllers
+namespace PingCommand.Controllers
 {
 	[ApiController]
 	[Route("[controller]")]
@@ -16,13 +16,17 @@ namespace PingQuery.Controllers
 		}
 
 		/// <summary>
-		/// Pega um ping específico
+		/// Posta um ping
 		/// </summary>
 		/// <returns></returns>
-		[HttpGet("")]
-		public IEnumerable<Ping> Get()
+		[HttpPost("")]
+		public IActionResult Post(Ping ping)
 		{
-			return _cacheProvider.GetAll("pings");
+			List<Ping> pings = _cacheProvider.GetAll("pings");
+			pings.Add(ping);
+			_cacheProvider.AddAll("pings", pings);
+
+			return Created("", ping);
 		}
 	}
 }

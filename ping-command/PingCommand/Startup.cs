@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using PingQuery.Infrastructure;
+using PingCommand.Infrastructure;
 
-namespace PingQuery
+namespace PingCommand
 {
 	public class Startup
 	{

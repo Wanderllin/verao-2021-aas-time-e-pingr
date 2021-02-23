@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace PingQuery
+namespace PingCommand
 {
 	public class Program
 	{
