@@ -34,7 +34,7 @@ Aqui nesse ponto podemos ver a viabilidade de Events Notifications, e como podem
 
 * **Microsserviço: notification-delivery**
 
-![Arquitetura Global](imagens/microservices-and-eda-view-pingr-4.png)
+![Arquitetura Global1](https://github.com/Wanderllin/verao-2021-aas-time-e-pingr/imagens/microservices-and-eda-view-pingr-4.png)
 
  
 ## Consequências (Descrever pontos positivos e negativos de ter escolhido esse padrão)
