@@ -23,8 +23,8 @@ Cada back-end para front-end chama os serviços necessários que são solicitado
 
 * **Microsserviço web-api-gateway**
 * **Microsserviço web-api-gateway**
- 
-![imagem Global2](imagens/microservices-and-eda-view-pingr-1.png)
+
+![Arquitetura Global2](../../imagens/microservices-and-eda-view-pingr-1.png)
 
 ## Consequências
 
