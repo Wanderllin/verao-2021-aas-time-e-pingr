@@ -1,6 +1,6 @@
 # EDA - Event Driven Architecture
 
-## Decisão
+## Decisão (Como cheguei a escolher essa decisão?)
 
 Uma Arquitetura Orientada a Eventos (EDA – Event Driven Architecture) utiliza de mudanças de estado (eventos) para disparar comunicações assíncronas e é comum em aplicações modernas baseadas em microsserviços, é um paradigma de arquitetura de software que promove a produção, detecção, consumo e reação a eventos.
 Um evento pode ser definido como "uma mudança significativa no estado". Como por exemplo, no Projeto Pingr, tanto web quanto mobile têm um menu específico para listar as notificações, ordenadas da mais recente para a mais antiga. As notificações são diferenciadas entre “lidas” e “não lidas”, pode tratar essa mudança de estado como um evento cuja ocorrência pode ser divulgada para outros aplicativos da arquitetura. De uma perspectiva formal, o que é produzido, publicado, propagado é uma notificação (geralmente assíncrona) chamada de notificação de evento, e não o próprio evento.  Clientes mobile têm suporte a notificações PUSH que são enviadas assim que a ação ocorre (interação com pings, DPs, etc); 
@@ -21,8 +21,6 @@ EDA é uma forma de realizar a comunicação entre sistemas que consiste princip
 
   * Consumidores de eventos; Consumers: quem ouve os eventos. Por exemplo, um microsserviços de estoque deve ouvir o evento OrderReceived para fazer a baixa do estoque
 
-Como cheguei a escolher essa decisão?
-
 Aqui nesse ponto podemos ver a viabilidade de Events Notifications, e como podemos equalizar todas as ocorrências através de uma única chamada. Basicamente, no ato de uma compra o(s) evento(s) é(são) disparado(s) e apenas os sistemas interessados em cada tipo de evento serão acionados, disparando um GET para receber tais informações.
 
 **E quais são os principais princípios desta arquitetura?**
@@ -34,12 +32,11 @@ Aqui nesse ponto podemos ver a viabilidade de Events Notifications, e como podem
 
 Usamos esse padrão em tais microsserviços:
 
-* Microsserviço 1
-* Microsserviço 2
+* notification-delivery
 
-## Consequências
 
-Descrever pontos positivos e negativos de ter escolhido esse padrão
+ 
+## Consequências (Descrever pontos positivos e negativos de ter escolhido esse padrão)
 
 O principal valor agregado ao negócio ao adotar-se EDA (Event-driven Architecture) seria a facilidade de estender o ecossistema com novos componentes, de forma modular, prontos para reagir a eventos existentes ou produzir novos sem o risco de comprometer as implementações existentes e seu funcionamento.
 
