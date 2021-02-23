@@ -6,7 +6,7 @@ Até 4 meses atrás, a empresa Pingr investiu apenas no público latino-american
 O Pingr é acessado maciçamente por seu público ao longo das 24 horas do dia. E as pesquisas de aceitação demonstraram que os usuários toleram alguns delays, como:
 - Pings próprios podem levar até 15s para aparecerem para si.
 - Pings de outros podem demorar até 3 minutos para aparecer na(s) sua(s) mesa(s);
-Para poder atender o publico dentro da espectativa do tempo, e tornar as implementações e manutenções mais ágeis para o objetivo central da aplicação, que é o ping, decidimos desmentrar o microsserviço Ping implementando o padrão de arquitetura CQRS no mesmo.
+Para poder atender o publico dentro da espectativa do tempo, e tornar as implementações e manutenções mais ágeis para o objetivo central da aplicação, que é o ping, decidimos desmembrar o microsserviço Ping implementando o padrão de arquitetura CQRS no mesmo.
 
 Usamos esse padrão nos microsserviços:
 
@@ -15,9 +15,9 @@ Usamos esse padrão nos microsserviços:
 
 ## Consequências
 
-Por conta da separar a responsabilidade de escrita e leitura de seus dados, podemos visualizar algumas consequências positivas e negativas.
+Por conta da separação da responsabilidade de escrita e leitura de seus dados, podemos visualizar algumas consequências positivas e negativas.
 
-Pontos Positvos:
+Pontos Positivos:
 - Como será uma base de dados para cada microsserviço, teremos uma melhora na performance do banco e na aplicação
 - Aumenta a disponibilidade e escalabilidade da aplicação
 - Facilitar a implementação e manutenção dos dois microsserviços
@@ -26,7 +26,7 @@ Pontos Positvos:
 Pontos Negativos:
 - Por ter base de dados separado, maior responsabilidade e complexidade para alteração em tabela e representação de dados nos diferentes microsserviços
 - Uma estrutura de infra maior
-- Cuidado e atenção especial no gerenciamento da ferramente de replicação das informações entre as bases.
+- Cuidado e atenção especial no gerenciamento da ferramenta de replicação das informações entre as bases.
 
 ## 6. Justificativas para o uso de CQRS
 
