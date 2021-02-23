@@ -21,7 +21,6 @@ Por conta da separação da responsabilidade de escrita e leitura de seus dados,
 Pontos Positivos:
 - Como será uma base de dados para cada microsserviço, teremos uma melhora na performance do banco e na aplicação
 - Aumenta a disponibilidade e escalabilidade da aplicação
-- Facilitar a implementação e manutenção dos dois microsserviços
 - Os microsserviços podem ser em linguagem diferentes
 
 Pontos Negativos:
