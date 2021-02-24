@@ -1,7 +1,8 @@
 // Config
 
 var httpPort = 3000;
-var allowedOrigins = ["chrome-extension:", "://localhost:"]; // for CORS policy. If this array is empty the program don´t use this policy.
+var allowedOrigins = ["chrome-extension:", "://localhost"]; // for CORS policy. If this array is empty the program don´t use this policy.
+var queueReadDelay = 1000;
 
 // ---------- WebServer ---------- //
 
@@ -35,4 +36,4 @@ app.listen(httpPort);
 console.log("Web server online on port " + httpPort.toString());
 
 console.log("\n Reading queue...");
-queue.readQueue();
+queue.readQueue(queueReadDelay);
