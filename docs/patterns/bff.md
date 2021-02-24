@@ -32,13 +32,13 @@ Cada back-end para front-end chama os serviços necessários que são solicitado
 
 As vantagens de usar a abordagem de microsserviços vão além de um desenvolvimento mais rápido. Com ela, podemos contar também com mais flexibilidade, resiliência e escalibilidade, além de uma manutenção bem mais fácil. 
 
-** Pontos positivos do padrão de Gateway de API**
+**Pontos positivos do padrão de Gateway de API**
 
   * O gateway da API fica entre os aplicativos cliente e os microsserviços. Ele atua como um proxy reverso, encaminhando as solicitações de clientes para serviços. Ele também pode fornecer outros recursos de corte cruzado, como autenticação, terminação de SSL e cache.
 
   * O padrão chamado "back-end para front-end" (BFF), em que cada gateway de API pode fornecer uma API diferente adaptada para cada tipo de aplicativo cliente, possivelmente mesmo com base no fator forma de cliente implementando um código de adaptador específico que, sob a chamada de vários microserviços internos.
 
-** Pontos negativos do padrão de Gateway de API**
+**Pontos negativos do padrão de Gateway de API**
 
    * A desvantagem mais importante é que, quando você implementa um Gateway de API, está acoplando essa camada aos microsserviços internos. Um acoplamento como este pode introduzir problemas sérios no seu aplicativo. Clemens Vaster, arquiteto na equipe do Barramento de Serviço do Azure, refere-se a essa possível dificuldade como "o novo ESB" na sessão "Mensagens e microsserviços" na GOTO 2016.
 
