@@ -29,9 +29,49 @@ Em contrapartida, existe uma complexidade grande envolvida nesse tipo de soluç�
 
 ### Visão arquitetural da solução
 
-texto....
+A partir das histórias de usuários, identificamos os principais elementos que compõe a solução e os organizamos em microsserviços por subdomínio, observando as responsabilidades que podem ser atribuídas a cada equipe e garantindo que eles possam evoluir e ser entregues com elevado grau de independência.  
+
+As responsabilidades de cada microsserviço são:
+
+* web-api-gateway 
+    * Ponto central para atender as requisições feitas por navegadores de internet de desktops (clientes web);
+    * Disponibiliza funcionalidades exclusivas para clientes web, como a consulta de mesas secundárias;
+    * Orquestra as chamadas para múltiplos microsserviços, quando necessário, para atender os cenários de uso;
+* mobile-api-gateway
+    * Ponto central para atender as requisições feitas por aplicativos de smartphones;
+    * Disponibiliza funcionalidades exclusivas para clientes móveis (apps), como a consulta de nuvens de palavras locais (TagNow Here);
+    * Fornece pontos de conexão (endpoints) otimizados para conexões lentas (redes 2g, 3g, etc); 
+    * Orquestra as chamadas para múltiplos microsserviços, quando necessário, para atender os cenários de uso;
+* account
+    * Permite a gestão da conta dos usuários, permitindo o ajuste da visibilidade de perfil ( público e privado) e a visibilidade padrão dos pings publicados;
+    * Permite a criação listas de amigos especiais com usuários específicos;
+    * Permite armazenar as configurações de exibição de mesas segundárias e de usuários seguidos pela conta de usuário; 
+* direct-ping
+    *  Permite a comunicação privada entre usuários através de mensagens;
+* ping-command
+    * Permite a publicação de pings, o seu compartilhamento (pongs) e a resposta a eles;
+* ping-query
+    * Permite a consulta de pings para a mesa principal e mesas secundárias (personalizadas);
+    * Permite a busca de pings marcados com hashtags
+* statistics
+    * Gera nuvens de hashtags (TagNow) com base nos pings publicados e na sua localização;
+    * Permite a consulta das hashtags TagNow Here e TagNow World;
+* notification-delivery
+    * Registra notificações a partir de eventos gerados por outros microsserviços (ex: solicitação para seguir um perfil, menção em ping, recebimento de direct-ping, etc) para informar aos usuários posteriormente;
+    * Permite a consulta de notificações geradas para cada usuário;
+    * Envia notificações push para celulares
+
+A visão arquitetural a seguir ilustra os microsserviços mencionados e suas interações em tempo de execução, cobrindo as funcionalidades previstas para o Pingr.
 
 ![Arquitetura Global](imagens/microservices-and-eda-view-pingr-0.png)
+
+O diagrama de sequência a seguir ilustra como diferentes serviços interagem entre si para permitir a publicação de um ping em que um usuário menciona outro, o qual deverá ser notificado.
+
+![Diagrama Sequencia Postar Ping](imagens/diagrama-sequencia-postagem-ping.png)
+
+O próximo diagrama de sequência mostra a interação entre os serviços para permitir a consulta de pings em uma mesa personalizada (mesa secundária).
+
+![Diagrama Sequencia Postar Ping](imagens/diagrama-sequencia-consultar-mesa-secundária.png)
 
 ### Padrões de microsserviços adotados
 
@@ -39,11 +79,15 @@ texto....
 * [Asynchronous message](docs/patterns/async-message.md)
 * [EDA - Event Driven Architecture](docs/patterns/eda.md)
 * [BFF - Backends For Frontends](docs/patterns/bff.md)
+* [API Gateway](docs/patterns/api-gateway.md)
+* [Database per Service](docs/patterns/database-per-service.md)
 
 ### Implementação
 
-texto...
+Como prova de conceito, fizemos um recorte dos microsserviços que compõe a solução para demonstrar a implementação de alguns do principais padrões arquiteturais utilizados.
+
+Para demonstrar o funcionamento do CQRS, foi feita uma implementação básica dos microsserviços ping-command e ping-query. Para exemplificar o funcionamento do API Gateway, foi feita uma implementação básica do web-api-gateway. E para demonstrar o funcionamento do asynchronous message para interação entre serviços, foram implementados de forma bem simples os microsserviços account e notification-delivery.
 
 ### Conclusão
 
-texto...
+
