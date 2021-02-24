@@ -14,8 +14,6 @@ Usamos esse padrão nos microsserviços:
 * Ping-Command
 * Ping-Query
 
-![Arquitetura Global2](../../imagens/microservices-and-eda-view-pingr-2.png)
-
 ## Consequências
 
 Por conta da separação da responsabilidade de escrita e leitura de seus dados, podemos visualizar algumas consequências positivas e negativas.
