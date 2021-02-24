@@ -107,6 +107,31 @@ indexação entre os dois usuarios, gerando ao fnal uma mensagem representara po
 arquivo JSON e direcionado para o canal "profile-interactions", que por sua vez se 
 encarregua de informar ao usuario seu novo seguidor. 
 
+LIST ACCOUNT:
+http://localhost:8090/ime-rest/rest/service/list
+
+ID: 
+http://localhost:8090/ime-rest/rest/service/id/get/1
+http://localhost:8090/ime-rest/rest/service/id/get/2
+http://localhost:8090/ime-rest/rest/service/id/get/3
+http://localhost:8090/ime-rest/rest/service/id/get/4
+http://localhost:8090/ime-rest/rest/service/id/get/5
+http://localhost:8090/ime-rest/rest/service/id/get/6
+
+USER: 
+http://localhost:8090/ime-rest/rest/service/user/get/DCD
+http://localhost:8090/ime-rest/rest/service/user/get/VDLN
+http://localhost:8090/ime-rest/rest/service/user/get/RF
+http://localhost:8090/ime-rest/rest/service/user/get/VC
+http://localhost:8090/ime-rest/rest/service/user/get/GUILH
+http://localhost:8090/ime-rest/rest/service/user/get/MR
+
+NEW FOLLOW: 
+http://localhost:8090/ime-rest/rest/service/followdestination/get/VDLN
+http://localhost:8090/ime-rest/rest/service/followdestination/get/RF
+http://localhost:8090/ime-rest/rest/service/followdestination/get/VC
+http://localhost:8090/ime-rest/rest/service/followdestination/get/GUILH
+http://localhost:8090/ime-rest/rest/service/followdestination/get/MR
 
 ### Conclusão
 
