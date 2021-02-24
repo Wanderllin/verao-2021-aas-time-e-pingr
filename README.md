@@ -1,5 +1,7 @@
 
-|![logo](imagens/verao_ime.png)|# L PROGRAMA DE VERÃO DO IME-USP (2021 - edição 50)  | ![logo2](imagens/logo_ime.png)|
+![logo](imagens/verao_ime.png)
+
+# L PROGRAMA DE VERÃO DO IME-USP (2021 - edição 50)  
 
 ## Curso: Arquitetura Ágil de Software - EaD - Período: 18/01/2021 a 26/02/2021
 
