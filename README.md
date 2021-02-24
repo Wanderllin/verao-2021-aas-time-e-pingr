@@ -91,6 +91,23 @@ Como prova de conceito, fizemos um recorte dos microsserviços que compõe a sol
 
 Para demonstrar o funcionamento do CQRS, foi feita uma implementação básica dos microsserviços ping-command e ping-query. Para exemplificar o funcionamento do API Gateway, foi feita uma implementação básica do web-api-gateway. E para demonstrar o funcionamento do asynchronous message para interação entre serviços, foram implementados de forma bem simples os microsserviços account e notification-delivery.
 
+
+### Account
+
+Permite a gestão da conta dos usuários, permitindo o ajuste da visibilidade de perfil 
+(público e privado) e a visibilidade padrão dos pings publicados;
+Permite a criação listas de amigos especiais com usuários específicos;
+Permite armazenar as configurações de exibição de mesas secundárias e de usuários seguidos pela conta de usuário;
+
+Escopo da implementação 
+
+Quando um usuario começa a seguir outro, uma notificação é gerada para seguido,
+neste processo o serviço account recebe a notificação de "NewFollower" e faz a 
+indexação entre os dois usuarios, gerando ao fnal uma mensagem representara por um 
+arquivo JSON e direcionado para o canal "profile-interactions", que por sua vez se 
+encarregua de informar ao usuario seu novo seguidor. 
+
+
 ### Conclusão
 
 
