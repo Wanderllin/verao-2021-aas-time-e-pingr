@@ -31,6 +31,13 @@ Aqui nesse ponto podemos ver a viabilidade de Events Notifications, e como podem
   * A comunicação flui apenas em uma direção: as notificações devem seguir o estilo “disparar e esquecer”, pelo qual o gerador enviará a notificação e seguirá seu fluxo normalmente, não aguardando o processamento do evento pelo processador. A preocupação com os processadores que recebem a notificação com sucesso passa a ser responsabilidade da fila ou do mediador.
   * É livre de comandos: uma notificação informa a ocorrência de um evento. Não deve dizer o que deve fazer o processador que receberá o evento; cada processador deve saber o que fazer com o evento.
 
+Resumindo 4 temas estão quase sempre presentes:
+
+1 - Notificação de Eventos (**Event Notification**)
+2 - Transferência de Estados carregados por Eventos (**Event-carried State Transfer**)
+3 - Fonte de Eventos (**Event Sourcing**)
+4 - Segregação de responsabilidade de comandos e consultas (**Command Query Responsibility Segregation – CQRS**)
+
 **Usamos esse padrão em tais microsserviços:**
 
 * **Microsserviço: notification-delivery**
@@ -40,9 +47,13 @@ Aqui nesse ponto podemos ver a viabilidade de Events Notifications, e como podem
  
 ## Consequências 
 (Descrever pontos positivos e negativos de ter escolhido esse padrão)
-
+** Pontos positivos:
 O principal valor agregado ao negócio ao adotar-se EDA (Event-driven Architecture) seria a facilidade de estender o ecossistema com novos componentes, de forma modular, prontos para reagir a eventos existentes ou produzir novos sem o risco de comprometer as implementações existentes e seu funcionamento.
 
 EDA promove o baixo acoplamento dos componentes no sentido de que para atender novas funcionalidades emergentes de requisitos de negócio no futuro simplesmente acrescentamos o novo componente que passará a escutar e reagir aos eventos existentes. Uma sequência relacionada e ordenada de eventos reflete um comportamento (geralmente chamado de Stream) na linha do tempo.
 
 Eventos, dentro do EDA, podem ser de dois tipos: Event Notification ou Event-Carried State Transfer. Sendo que no padrão Event Notification o evento apenas encarrega-se de notificar, de forma simples, que algo relevante ocorreu e que uma reação relacionada a este acontecimento pode ser desencadeada.
+
+** Pontos negativos:
+
+Ter o Estado nos Eventos desacopla ainda mais os serviços e reduz a carga no fornecedor, mas traz a duplicação de dados e a consistência é eventual.
