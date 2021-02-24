@@ -28,7 +28,7 @@ Pontos Negativos:
 - Uma estrutura de infra maior
 - Cuidado e atenção especial no gerenciamento da ferramenta de replicação das informações entre as bases.
 
-## 6. Justificativas para o uso de CQRS
+## Justificativas para o uso de CQRS
 
 • Dimensionamento independente. O CQRS permite que as cargas de trabalho de leitura e gravação sejam dimensionadas de forma independente e pode resultar em menos contenções de bloqueio.
 
