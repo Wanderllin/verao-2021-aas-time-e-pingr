@@ -1,24 +1,26 @@
 // this persistence is only for test
+var rabbitMQUrl = "pingr:pingr@localhost:15672/vhost";
+var rabbitMQChannel = "profile-interactions";
 var receivedMessages = [
-	{
-		"event": "NewFollower",
-		"originUserId": "1",
-		"destinationUserId": "2",
-	},
-	{
-		"event": "NewFollower",
-		"originUserId": "1",
-		"destinationUserId": "3",
-	},
-	{
-		"event": "NewFollower",
-		"originUserId": "2",
-		"destinationUserId": "1",
-	},
+    {
+        "event": "NewFollower",
+        "originUserId": "1",
+        "destinationUserId": "2",
+    },
+    {
+        "event": "NewFollower",
+        "originUserId": "1",
+        "destinationUserId": "3",
+    },
+    {
+        "event": "NewFollower",
+        "originUserId": "2",
+        "destinationUserId": "1",
+    },
 ];
 // connect with RabbitMQ server
 function connect(){
-  return require('amqplib').connect("pingr:pingr@localhost:15672/vhost")
+  return require('amqplib').connect(rabbitMQUrl)
                            .then(conn => conn.createChannel());
 } 
 // create a queue with an especific name
@@ -46,25 +48,27 @@ function consume(queueName, callback){
     .catch(err => console.log(err));
 }
 // keep the program consuming a queue
-function keepConsuming(queueName) {
-	consume(queueName, message => {
-		// process the message
-		console.log("Message Received: " + message.content.toString());
-		receivedMessages.push(message.content);
-		keepConsuming(queueName);
-	});
+function keepConsuming(queueName, delay) {
+    consume(queueName, message => {
+        // process the message
+        console.log("Message Received: " + message.content.toString());
+        receivedMessages.push(message.content);
+        setTimeout(function() {
+            keepConsuming(queueName);
+        }, delay);
+    });
 }
 
 // --------------- public methods ------------------- //
 
 exports.getNotifications = function(userId) {
-	var lstNotifications = [];
-	for (var i = 0; i < receivedMessages.length; i++)
-		if (receivedMessages[i].destinationUserId == userId)
-			lstNotifications.push(receivedMessages[i]);
-	return lstNotifications;
-}
+    var lstNotifications = [];
+    for (var i = 0; i < receivedMessages.length; i++)
+        if (receivedMessages[i].destinationUserId == userId)
+            lstNotifications.push(receivedMessages[i]);
+    return lstNotifications;
+};
 
-exports.readQueue = function() {
-	keepConsuming("profile-interactions");
-}
+exports.readQueue = function(delay) {
+    keepConsuming(rabbitMQChannel, delay);
+};
