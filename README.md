@@ -71,7 +71,7 @@ O diagrama de sequência a seguir ilustra como diferentes serviços interagem en
 
 O próximo diagrama de sequência mostra a interação entre os serviços para permitir a consulta de pings em uma mesa personalizada (mesa secundária).
 
-![Diagrama Sequencia Postar Ping](imagens/diagrama-sequencia-consultar-mesa-secundária.png)
+![Diagrama Sequencia Postar Ping](imagens/diagrama-sequencia-consultar-mesa-secundaria.png)
 
 ### Padrões de microsserviços adotados
 
